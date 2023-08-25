@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>add content to <p> tag assignment</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <aside>
+            <div>
+                <input type="text" id="textInput" placeholder="Enter text">
+                <button id="addButton">Add</button>
+            </div>
+        </aside>
+        
+        <aside>
+            <p id="content"></p>
+        </aside>
+    </div>
+
+    <script>
+        const textInput = document.getElementById("textInput");
+        const addButton = document.getElementById("addButton");
+        const contentParagraph = document.getElementById("content");
+
+        addButton.addEventListener("click", () => {
+            const newText = textInput.value;
+
+            if (newText.trim() !== "") {
+                const newLine = document.createElement("br");
+                const newContent = document.createTextNode(newText);
+                contentParagraph.appendChild(newContent);
+                contentParagraph.appendChild(newLine);
+                textInput.value = "";
+            }
+        });
+    </script>
+</body>
+</html>
